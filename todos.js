@@ -1,14 +1,14 @@
 module.exports = {
   'MI449': {
     todo: 'Finish all assignments',
-    status: 'Incomplete'
+    status: true
   },
   'Car': {
     name: 'Get oil change',
-    status: 'Complete'
+    status: false
   },
   'Bedroom': {
     name: 'Clean bedroom',
-    status: 'Complete'
+    status: true
   }
 }
