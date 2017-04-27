@@ -27,10 +27,10 @@ app.get('/todos/:slug', function (request, response) {
 
 // Saves information into todos
 app.post('/todos', function (request, response) {
-  var slug = request.body.name.trim().toLowerCase().split(' ').join('-')
+  var slug = request.body.todo.trim().toLowerCase().split(' ').join('-')
   todos[slug] = {
-		name: request.body.name.trim(),
-		price: '$' + parseFloat(request.body.price).toFixed(2)
+		todo: request.body.todo.trim(),
+		status: request.body.status
 	}
   response.redirect('/todos/' + slug)
 })
@@ -44,11 +44,11 @@ app.delete('/todos/:slug', function (request, response) {
 // Update todo
 app.put('/todos/:slug', function (request, response) {
   var todo = todos[request.params.slug]
-  if (request.body.name !== undefined) {
-    todo.name = request.body.name.trim()
+  if (request.body.todo !== undefined) {
+    todo.todo = request.body.todo.trim()
   }
-  if (request.body.price !== undefined) {
-    todo.price = '$' + parseFloat(request.body.price).toFixed(2)
+  if (request.body.status !== undefined) {
+    todo.status = request.body.status
   }
   response.redirect('/todos')
 })
